@@ -26,7 +26,7 @@
 			<div class="jumbotron">
 				<form action="#" role="form">
 					<div id="intro">
-						<h1>QuizPro Quo</h1>
+						<h1>SmashQuiz</h1>
 						<p>This is a simple quiz application using primarily Javascript. This application was done as part of a project series through the <a href="http://www.reddit.com/r/jstogether">JSTogether group</a>.</p> 
 						<h2>The requirements for the application:</h2>
 						<ul>
@@ -39,13 +39,31 @@
 						<button type="button" id="begin">Begin</button>
 					</div>
 					<div id="questionWrapper" class="input-group">
-						<h1><span id="questionNumber"></span></h1>
-						<p class="lead" id="question"></p>
-						<div class="well" id="answers"></div>
-						<button type="button" id="previous">Previous</button>
-						<button type="button" id="next">Next</button>
+						<div class="row">
+							<div class="col-md-6">
+								<img id="characterImg" class="img-responsive">
+							</div>
+							<div class="col-md-6">
+								<h1><span id="questionNumber"></span></h1>
+								<p class="lead" id="question"></p>
+								<div class="well" id="answers"></div>
+								<button type="button" id="previous">Previous</button>
+								<button type="button" id="next">Next</button>
+							</div>
+						</div>
 					</div>
-					<div id="results"></div>
+					<div id="results">
+						<div class="row">
+							<div class="col-md-3">
+								<img id="smashlogo" class="img-responsive"></img>
+							</div>
+							<div class="col-md-9">
+								<h1>Your score: <span id="score"></span></h1>
+								<p id="scoreOutput" class="lead"></p>
+								<p id="advice"></p>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>

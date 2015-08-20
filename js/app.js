@@ -11,15 +11,18 @@ $(document).ready(function () {
 
 	function init () {
 		questions = [
-			{ question: 'How do I shot web?', 
-				answers: ['Up','Down','Left','Right'], 
-				correctAnswer: 0	},
-			{	question: 'But who was villain?', 
-				answers: ['Supamang','Goobey','Dolan','Mouse'], 
-				correctAnswer: 2 },
-			{ question: 'What is my name?', 
-				answers: ['Doug','Chuy','Greg','Sam'], 
-				correctAnswer: 3 }
+			{ question: 'Who is this character?', 
+				answers: ['Ken','Akuma','Oni','Ryu'], 
+				correctAnswer: 3,
+				imgURL: 'http://www.smashbros.com/images/character/ryu/main.png'},
+			{	question: 'What game does Captain Falcon hail from?', 
+				answers: ['Ridge Racer','F-Zero','Wipeout'], 
+				correctAnswer: 1,
+				imgURL: 'http://www.smashbros.com/images/character/captain_falcon/main.png'},
+			{ question: 'Select the correct character that also appears in the Super Mario series', 
+				answers: ['Donatello','King Koopa','K.K. Slider'], 
+				correctAnswer: 1,
+				imgURL: 'http://www.smashbros.com/images/character/luigi/main.png'}
 		];
 
 		$questionWrapper.hide();
@@ -57,10 +60,30 @@ $(document).ready(function () {
 
 		// get percentage right
 		var percentageCorrect = (score / questions.length) * 100;
-		$('#results').append('<h1>Your score: ' + percentageCorrect.toPrecision(2) + '%</h1>');
-		$('#results').append('<p class="lead">You got ' + score + ' out of ' + questions.length + ' right!');
-	};
 		
+		// fill in information
+		$('#score').text(percentageCorrect.toFixed(2) + '%');
+		$('#scoreOutput').text('You got ' + score + ' out of ' + questions.length + ' right!');
+		$('#smashlogo').attr('src', "http://www.ssbwiki.com/images/f/fc/SmashBrosSymbol.png");
+		
+		$('#advice').text(getAdvice(percentageCorrect));
+		
+	};
+	
+	function getAdvice(percentageCorrect){
+		if(percentageCorrect <= 25){
+			return "Advice: You might want to bone up on your video game knowledge."
+		} else if(percentageCorrect <= 50) {
+			return "Advice: You seem to have been born in the past few decades. You'll figure it out."
+		} else if(percentageCorrect <= 75) {
+			return "Advice: You know a fair bit about video games, but there's always more to know."
+		} else if(percentageCorrect <= 99) {
+			return "Advice: You know more than most! Keep those thumbs strong."
+		} else {
+			return "Advice: There is no advice. You got everything right! Congratulations!"
+		}
+	};
+	
 	function previousQuestion() {
 		if (currentQuestion > 0) {
 			recordAnswer();
@@ -87,7 +110,8 @@ $(document).ready(function () {
 		var questionObj = questions[currentQuestion];
 		$questionNumber.text("Question " + (currentQuestion + 1));
 		$question.text(questionObj.question);
-
+		$('#characterImg').attr('src', questions[currentQuestion].imgURL);
+		
 		// append the answers to div#answers with 0-based id
 		var i = 0;
 		questionObj.answers.forEach(function(answer) {
