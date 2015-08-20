@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="../../favicon.ico">
+
+		<title>QuizApp</title>
+
+		<!-- CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<form action="#" role="form">
+					<div id="intro">
+						<h1>QuizPro Quo</h1>
+						<p>This is a simple quiz application using primarily Javascript. This application was done as part of a project series through the <a href="http://www.reddit.com/r/jstogether">JSTogether group</a>.</p> 
+						<h2>The requirements for the application:</h2>
+						<ul>
+							<li>Radio button choices</li>
+							<li>Scalable number of questions and choices</li>
+							<li>Scoring</li>
+							<li>Dynamically add the next question, and remove the previous question</li>
+						</ul>
+						<p>Click the button to begin the quiz.</p>
+						<button type="button" id="begin">Begin</button>
+					</div>
+					<div id="questionWrapper" class="input-group">
+            <h1><span id="questionNumber"></span></h1>
+            <p class="lead" id="question"></p>
+            <div class="well" id="answers">
+            </div>
+            <button type="button" id="previous">Previous</button>
+						<button type="button" id="next">Next</button>
+					</div>
+					<div id="results"></div>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
+</html>
